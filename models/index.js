@@ -13,7 +13,7 @@ Post.belongsTo(User, {
 });
 
 // Each Comment belongs to a User
-UserUser.hasMany(Comment, {
+User.hasMany(Comment, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
@@ -21,3 +21,15 @@ UserUser.hasMany(Comment, {
 Comment.belongsTo(User, {
     foreignKey: 'user_id',
 });
+
+// Each Comment belongs to a Post
+Post.hasMany(Comment, {
+    foreignKey: 'post_id',
+    onDelete: 'CASCADE'
+});
+
+Comment.belongsTo(Post, {
+    foreignKey: 'post_id',
+});
+
+module.exports = { User, Comment, Post }
