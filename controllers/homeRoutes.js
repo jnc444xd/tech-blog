@@ -64,6 +64,7 @@ router.get('/dashboard', async (req, res) => {
 router.get('/edit/:id', async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
+            where: { user_id: req.session.user_id },
             include: [{ model: User }]
         });
 
@@ -80,5 +81,10 @@ router.get('/edit/:id', async (req, res) => {
     }
 });
 
+// Display Create New Post
+router.get('/create', async (req, res) => {
+
+    res.render('create');
+});
 
 module.exports = router;
