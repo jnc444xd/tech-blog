@@ -2,6 +2,24 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 const authCheck = require('../utils/auth');
 
+// Displaying login page
+router.get('/login', (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/');
+        return;
+    }
+    res.render('login');
+});
+
+// Displaying sign up page
+router.get('/signup', (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/');
+        return;
+    }
+    res.render('signup');
+});
+
 // Display Homepage
 router.get('/', async (req, res) => {
     try {
@@ -41,5 +59,26 @@ router.get('/dashboard', async (req, res) => {
         res.status(500).json(err)
     }
 });
+
+// Display Edit Post
+router.get('/edit/:id', async (req, res) => {
+    try {
+        const postData = await Post.findByPk(req.params.id, {
+            include: [{ model: User }]
+        });
+
+        if (!postData) {
+            res.status(404).json({ message: 'Could not find post data to edit' })
+        };
+
+        const post = postData.get({ plain: true });
+
+        res.render('edit', { post });
+        
+    } catch (err) {
+        res.status(500).json(err)
+    }
+});
+
 
 module.exports = router;

@@ -1,13 +1,15 @@
-{{#each posts as |post|}}
 <div>
     <h2>{{post.name}}</h2>
     <span>{{post.text}}</span><br>
     <span>Posted by {{post.user.name}} on {{post.createdAt}}</span><br>
 </div>
-{{/each}}
 <div>
-    <label>Comment</label><br>
+    <label>Title</label><br>
     <textarea>
-        Enter comment here...
+        Title here...
+    </textarea><br>
+    <label>Text</label><br>
+    <textarea>
+        Post text here...
     </textarea>
 </div>
