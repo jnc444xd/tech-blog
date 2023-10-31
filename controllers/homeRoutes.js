@@ -81,6 +81,26 @@ router.get('/edit/:id', async (req, res) => {
     }
 });
 
+// Display Comment Page
+router.get('/comment/:id', async (req, res) => {
+    try {
+        const postData = await Post.findByPk(req.params.id, {
+            include: [{ model: User }]
+        });
+
+        if (!postData) {
+            res.status(404).json({ message: 'Could not find post data to comment' })
+        };
+
+        const post = postData.get({ plain: true });
+
+        res.render('comment', { post });
+        
+    } catch (err) {
+        res.status(500).json(err)
+    }
+});
+
 // Display Create New Post
 router.get('/create', async (req, res) => {
 
