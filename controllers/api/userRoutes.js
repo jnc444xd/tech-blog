@@ -4,7 +4,10 @@ const { User } = require('../../models');
 // Creates new user
 router.post('/', async (req, res) => {
     try {
-        const newUser = await User.create(req.body);
+        const newUser = await User.create({
+            name: req.body.name,
+            password: req.body.password
+        });
 
         req.session.save(() => {
             req.session.user_id = newUser.id;
@@ -20,7 +23,7 @@ router.post('/', async (req, res) => {
 // User login
 router.post('/login', async (req, res) => {
     try {
-        const userData = await User.findOne({ where: { name: req.body.name } });
+        const userData = await User.findOne({ where: { name: req.body.username } });
 
         if (!userData) {
             res.status(400).json({ message: 'Name was not found, please try again.' });
