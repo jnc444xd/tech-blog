@@ -21,7 +21,7 @@ router.get('/signup', (req, res) => {
 });
 
 // Display Homepage
-router.get('/', async (req, res) => {
+router.get('/', authCheck, async (req, res) => {
     try {
         const postData = await Post.findAll({
             include: [{ model: User }]
@@ -41,7 +41,7 @@ router.get('/', async (req, res) => {
 });
 
 // Display Dashboard
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', authCheck, async (req, res) => {
     try {
         const postData = await Post.findAll({
             where: { user_id: req.session.user_id }
@@ -61,7 +61,7 @@ router.get('/dashboard', async (req, res) => {
 });
 
 // Display Edit Post
-router.get('/edit/:id', async (req, res) => {
+router.get('/edit/:id', authCheck, async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
             where: { user_id: req.session.user_id },
@@ -82,7 +82,7 @@ router.get('/edit/:id', async (req, res) => {
 });
 
 // Display Comment Page
-router.get('/comment/:id', async (req, res) => {
+router.get('/comment/:id', authCheck, async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
             include: [{ model: User }]
@@ -102,7 +102,7 @@ router.get('/comment/:id', async (req, res) => {
 });
 
 // Display Create New Post
-router.get('/create', async (req, res) => {
+router.get('/create', authCheck, async (req, res) => {
     res.render('create');
 });
 
