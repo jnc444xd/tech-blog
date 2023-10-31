@@ -41,3 +41,7 @@ const loginHandler = async (event) => {
         }
     }
 };
+
+// Event listeners
+document.querySelector('#signupBtn').addEventListener('click', signupHandler);
+document.querySelector('#loginBtn').addEventListener('click', loginHandler);
