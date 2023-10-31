@@ -103,7 +103,6 @@ router.get('/comment/:id', async (req, res) => {
 
 // Display Create New Post
 router.get('/create', async (req, res) => {
-
     res.render('create');
 });
 
