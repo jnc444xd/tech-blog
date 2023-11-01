@@ -4,6 +4,8 @@
 
 This website was created to provide developers a way to write about their work and opinions on a CMS style blog site. It also allows fellow developers to read their posts and leave comments.
 
+![Screenshot of Tech Blog](/images/tech-blog-screenshot.png)
+
 ## Usage
 
 Navigate to this [URL](https://grim-ghost-05578-d643ed2467b4.herokuapp.com/).
