@@ -57,7 +57,8 @@ router.post('/comment/:id', async (req, res) => {
         res.status(200).json(comment);
         
     } catch (err) {
-        res.status(500).json(err)
+        console.error(err);
+        res.status(500).json(err);
     }
 });
 
