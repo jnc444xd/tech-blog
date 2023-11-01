@@ -1,6 +1,7 @@
 [
     {
         "text": "This was very helpful!",
-        "user_id": 2
+        "user_id": 2,
+        "post_id": 1
     }
 ]

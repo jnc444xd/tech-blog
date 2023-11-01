@@ -4,9 +4,17 @@
     <span>Posted by {{post.user.name}} on {{post.createdAt}}</span><br>
 </div>
 <div>
-    <label>Comment</label><br>
-    <textarea>
-        Enter comment here...
-    </textarea>
-    <button id="commentBtn">Submit</button>
+    <h3>Comments:</h3>
+    {{#each post.comments as |comment|}}
+    <div>
+        <span>{{comment.text}}</span><br>
+        <span>-- {{comment.user.name}}</span><br>
+    </div>
+    {{/each}}
 </div>
+<div>
+    <label>Comment</label><br>
+    <textarea id="text" placeholder="Enter Comment Here"></textarea>
+    <button id="commentBtn" data-id="{{post.id}}">Submit</button>
+</div>
+<script src="/js/comment.js"></script>

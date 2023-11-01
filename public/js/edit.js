@@ -12,7 +12,7 @@ const editPostHandler = async (event) => {
         const response = await fetch(`/api/post/${id}`, {
             method: 'PUT',
             body: JSON.stringify({ title, text }),
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json' }
         });
 
         if (response.ok) {

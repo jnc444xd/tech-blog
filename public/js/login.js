@@ -8,14 +8,14 @@ const loginHandler = async (event) => {
         const response = await fetch('/api/user/login', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json' }
         });
 
         if (response.ok) {
-            document.location.replace('/'); // Redirect to homepage
+            document.location.replace('/') // Redirect to homepage
 
         } else {
-            alert('Incorrect Username and/or Password.');
+            alert('Incorrect Username and/or Password.')
         }
     }
 };

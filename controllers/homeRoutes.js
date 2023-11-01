@@ -85,7 +85,7 @@ router.get('/edit/:id', authCheck, async (req, res) => {
 router.get('/comment/:id', authCheck, async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
-            include: [{ model: User }]
+            include: [{ model: User }, { model: Comment, include: [{ model: User }] }]
         });
 
         if (!postData) {
@@ -95,6 +95,7 @@ router.get('/comment/:id', authCheck, async (req, res) => {
         const post = postData.get({ plain: true });
 
         res.render('comment', { post, logged_in: req.session.logged_in });
+        // res.json(post);
         
     } catch (err) {
         res.status(500).json(err)

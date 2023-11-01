@@ -9,12 +9,11 @@ const createPostHandler = async (event) => {
         const response = await fetch('/api/post', {
             method: 'POST',
             body: JSON.stringify({ title, text }),
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json' }
         });
 
         if (response.ok) {
             document.location.replace('/dashboard'); // Redirect to dashboard
-
         } else {
             alert('Error creating new post');
         }
