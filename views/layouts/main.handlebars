@@ -8,10 +8,14 @@
 <body>
     <header>
         <nav>
-            <button>Home</button>
-            <button>Dashboard</button>
-            <button>Login</button>
-            <button>Logout</button>
+            <a href="/">Home</a>
+            <a href="/dashboard">Dashboard</a>
+            {{#unless logged_in}}
+            <a href="/login">Login</a>
+            {{/unless}}
+            {{#if logged_in}}
+            <a class="logoutBtn" href="">Logout</a>
+            {{/if}}
         </nav>
         <h1>
             The Tech Blog
@@ -22,5 +26,8 @@
     {{{ body }}}
     
     </main>
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 </html>
