@@ -1,0 +1,32 @@
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: black;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+.title {
+    border-bottom: 2px solid rgb(5, 74, 0);
+    padding: 5px;
+    width: 270px;
+    margin: auto;
+}
+
+.button {
+    width: 75px;
+    margin: auto;
+}
+
+.left-button {
+    width: 100px;
+}

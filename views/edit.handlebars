@@ -1,13 +1,16 @@
-<div>
-    <h2>{{post.name}}</h2>
-    <span>{{post.text}}</span><br>
-    <span>Posted by {{post.user.name}} on {{format_date post.createdAt}}</span><br>
+<div class="card mt-4 mx-4 mb-4">
+    <h2 class="card-header">{{post.name}}</h2>
+    <span class="mx-4 mt-4">{{post.text}}</span><br>
+    <span class="mx-4">Posted by {{post.user.name}} on {{format_date post.createdAt}}</span><br>
 </div>
-<div>
-    <label>Title</label><br>
-    <textarea id="title" placeholder="Post Title Text"></textarea><br>
-    <label>Content</label><br>
-    <textarea id="text" placeholder="Post Text Here"></textarea>
-    <button id="editBtn" data-id="{{post.id}}">Submit</button>
+<div class="card mt-4 mx-4 mb-4">
+    <label class="card-header mxx-2">Title</label><br>
+    <div class="mx-4">
+        <label>Title:</label><br>
+        <textarea id="title" placeholder="Post Title Text"></textarea><br>
+        <label>Content:</label><br>
+        <textarea class="mb-2" id="text" placeholder="Post Text Here"></textarea><br>
+        <button class="button mb-4" id="editBtn" data-id="{{post.id}}">Submit</button>
+    </div>
 </div>
 <script src="/js/edit.js"></script>

@@ -1,9 +1,9 @@
 {{#each posts as |post|}}
-<a href="/edit/{{post.id}}">
+<a class="card mt-4 mb-4" href="/edit/{{post.id}}">
     <div class="editPost" data-id="{{post.id}}">
-        <div>{{post.name}}</div>
-        <div>Created on {{format_date post.createdAt}}</div>
+        <div class="card-header mx-2">{{post.name}}</div>
+        <div class="mx-4">Created on {{format_date post.createdAt}}</div>
     </div>
 </a>
 {{/each}}
-<a href="/create"><button id="newPostBtn">+ New Post</button></a>
+<a href="/create"><button class="mx-4" id="newPostBtn">+ New Post</button></a>
