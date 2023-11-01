@@ -2,7 +2,7 @@
 <a href="/edit/{{post.id}}">
     <div class="editPost" data-id="{{post.id}}">
         <div>{{post.name}}</div>
-        <div>{{post.createdAt}}</div>
+        <div>Created on {{format_date post.createdAt}}</div>
     </div>
 </a>
 {{/each}}

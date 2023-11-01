@@ -2,6 +2,6 @@
 <div>
     <a href="/comment/{{post.id}}"><h2>{{post.name}}</h2></a>
     <span>{{post.text}}</span><br>
-    <span>Posted by {{post.user.name}} on {{post.createdAt}}</span><br>
+    <span>Posted by {{post.user.name}} on {{format_date post.createdAt}}</span><br>
 </div>
 {{/each}}

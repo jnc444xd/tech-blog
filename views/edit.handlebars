@@ -1,7 +1,7 @@
 <div>
     <h2>{{post.name}}</h2>
     <span>{{post.text}}</span><br>
-    <span>Posted by {{post.user.name}} on {{post.createdAt}}</span><br>
+    <span>Posted by {{post.user.name}} on {{format_date post.createdAt}}</span><br>
 </div>
 <div>
     <label>Title</label><br>
