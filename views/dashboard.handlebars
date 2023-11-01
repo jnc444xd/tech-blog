@@ -1,7 +1,9 @@
 {{#each posts as |post|}}
-<div>
-    <div>{{post.name}}</div>
-    <div>{{post.createdAt}}</div>
-</div>
+<a href="/edit/{{post.id}}">
+    <div class="editPost" data-id="{{post.id}}">
+        <div>{{post.name}}</div>
+        <div>{{post.createdAt}}</div>
+    </div>
+</a>
 {{/each}}
-<button id="newPostBtn">+ New Post</button>
+<a href="/create"><button id="newPostBtn">+ New Post</button></a>
