@@ -46,13 +46,11 @@ router.post('/comment/:id', async (req, res) => {
     const postID = req.params.id;
 
     try {
-        const comment = await Comment.create(
-            {
-                text: req.body.text,
-                user_id: req.session.user_id,
-                post_id: postID,
-            }
-        );
+        const comment = await Comment.create({
+            text: req.body.text,
+            user_id: req.session.user_id,
+            post_id: postID,
+        });
 
         res.status(200).json(comment);
         
