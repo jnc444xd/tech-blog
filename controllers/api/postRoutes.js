@@ -22,14 +22,14 @@ router.put('/:id', async (req, res) => {
     try {
         const editPost = await Post.update(
             {
+                name: req.body.title,
+                text: req.body.text
+            },
+            {
                 where: {
                     id: req.params.id,
                     user_id: req.session.user_id
                 }
-            },
-            {
-                name: req.body.name,
-                text: req.body.text
             }
         );
 

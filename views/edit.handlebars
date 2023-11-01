@@ -5,12 +5,13 @@
 </div>
 <div>
     <label>Title</label><br>
-    <textarea>
+    <textarea id="title">
         Title here...
     </textarea><br>
     <label>Content</label><br>
-    <textarea>
+    <textarea id="text">
         Post text here...
     </textarea>
-    <button id="editBtn">Submit</button>
+    <button id="editBtn" data-id="{{post.id}}">Submit</button>
 </div>
+<script src="/js/edit.js"></script>
